@@ -19,7 +19,7 @@ config.resolver.blockList = [
 config.resolver.nodeModulesPaths = [path.resolve(projectRoot, "node_modules")];
 
 config.resolver.extraNodeModules = {
-  "@launchhq/react-native-keyboard-composer": workspaceRoot,
+  "react-native-chat-composer": workspaceRoot,
 };
 
 module.exports = config;

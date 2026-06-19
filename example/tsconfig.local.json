@@ -2,8 +2,8 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "paths": {
-      "@launchhq/react-native-keyboard-composer": ["../src/index"],
-      "@launchhq/react-native-keyboard-composer/*": ["../src/*"]
+      "react-native-chat-composer": ["../src/index"],
+      "react-native-chat-composer/*": ["../src/*"]
     }
   }
 }

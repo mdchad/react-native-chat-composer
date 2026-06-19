@@ -26,7 +26,7 @@ internal class ImeKeyboardAnimationController(
     private val checkAndUpdateScrollPosition: () -> Unit
 ) {
     companion object {
-        private const val DEBUG_LOGS = true
+        private val DEBUG_LOGS = BuildConfig.DEBUG
         private const val TAG = "KeyboardComposerNative"
     }
 

@@ -17,7 +17,7 @@ import {
   KeyboardComposer,
   KeyboardAwareWrapper,
   constants,
-} from "@launchhq/react-native-keyboard-composer";
+} from "react-native-chat-composer";
 import { useResponsive } from "./hooks/useResponsive";
 
 // Start with an empty conversation to verify pin-to-top behavior on first send

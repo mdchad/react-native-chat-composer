@@ -26,7 +26,7 @@ import expo.modules.kotlin.views.ExpoView
 
 class KeyboardComposerView(context: Context, appContext: AppContext) : ExpoView(context, appContext) {
     companion object {
-        private const val DEBUG_LOGS = true
+        private val DEBUG_LOGS = BuildConfig.DEBUG
         private const val TAG = "KeyboardComposerNative"
     }
 

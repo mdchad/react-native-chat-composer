@@ -28,7 +28,7 @@ class KeyboardAwareWrapper(context: Context, appContext: AppContext) : ExpoView(
         private const val BUTTON_SIZE_DP = 32
         private const val BUTTON_GAP_DP = 24   // Gap between button and input
         private const val PINNED_TOP_PADDING_DP = 16
-        private const val DEBUG_LOGS = true
+        private val DEBUG_LOGS = BuildConfig.DEBUG
         private const val TAG = "KeyboardComposerNative"
     }
     

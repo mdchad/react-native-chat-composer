@@ -1,12 +1,14 @@
-# @launchhq/react-native-keyboard-composer
+# react-native-chat-composer
 
-[![npm version](https://img.shields.io/npm/v/@launchhq/react-native-keyboard-composer)](https://www.npmjs.com/package/@launchhq/react-native-keyboard-composer)
-[![npm downloads](https://img.shields.io/npm/dm/@launchhq/react-native-keyboard-composer)](https://www.npmjs.com/package/@launchhq/react-native-keyboard-composer)
-[![license](https://img.shields.io/npm/l/@launchhq/react-native-keyboard-composer)](https://github.com/launchtodayhq/react-native-keyboard-composer/blob/main/LICENSE)
+[![npm version](https://img.shields.io/npm/v/react-native-chat-composer)](https://www.npmjs.com/package/react-native-chat-composer)
+[![npm downloads](https://img.shields.io/npm/dm/react-native-chat-composer)](https://www.npmjs.com/package/react-native-chat-composer)
+[![license](https://img.shields.io/npm/l/react-native-chat-composer)](https://github.com/mdchad/react-native-chat-composer/blob/main/LICENSE)
 
 ---
 
 A native keyboard-aware composer for React Native chat applications. Built specifically for AI chat interfaces like ChatGPT and v0, where content needs to react intelligently to keyboard and input changes.
+
+> **Fork notice:** This is a maintained fork of [`@launchhq/react-native-keyboard-composer`](https://github.com/launchtodayhq/react-native-keyboard-composer) by [paulmbw](https://github.com/paulmbw), continued here because upstream is no longer actively maintained. Original work is MIT-licensed and all credit for the foundation goes to the original author — see [Acknowledgments](#acknowledgments). This fork adds New Architecture support, production hardening, and ongoing maintenance.
 
 ## Demo
 
@@ -43,11 +45,11 @@ This library solves all of that with native implementations that handle the edge
 ## Installation
 
 ```bash
-pnpm add @launchhq/react-native-keyboard-composer
+pnpm add react-native-chat-composer
 # or
-npm install @launchhq/react-native-keyboard-composer
+npm install react-native-chat-composer
 # or
-yarn add @launchhq/react-native-keyboard-composer
+yarn add react-native-chat-composer
 ```
 
 For Expo managed projects, run:
@@ -64,7 +66,7 @@ npx expo prebuild
 import {
   KeyboardComposer,
   KeyboardAwareWrapper,
-} from "@launchhq/react-native-keyboard-composer";
+} from "react-native-chat-composer";
 
 function ChatScreen() {
   const [composerHeight, setComposerHeight] = useState(48);
@@ -90,7 +92,7 @@ function ChatScreen() {
 ### With AI Streaming
 
 ```tsx
-import { KeyboardComposer } from "@launchhq/react-native-keyboard-composer";
+import { KeyboardComposer } from "react-native-chat-composer";
 
 function AIChat() {
   const [isStreaming, setIsStreaming] = useState(false);
@@ -188,7 +190,7 @@ Despite the name, `scrollToTopTrigger` is used to **arm pin-to-top for the next 
 Module constants for default values:
 
 ```tsx
-import { constants } from "@launchhq/react-native-keyboard-composer";
+import { constants } from "react-native-chat-composer";
 
 console.log(constants.defaultMinHeight); // 48
 console.log(constants.defaultMaxHeight); // 120
@@ -345,7 +347,7 @@ This approach works with any package manager and doesn't require workspaces.
 ```json
 {
   "dependencies": {
-    "@launchhq/react-native-keyboard-composer": "file:../react-native-keyboard-composer"
+    "react-native-chat-composer": "file:../react-native-keyboard-composer"
   }
 }
 ```
@@ -373,7 +375,7 @@ config.watchFolders = [keyboardComposerPath];
 
 // Map the package name to the local path
 config.resolver.extraNodeModules = {
-  "@launchhq/react-native-keyboard-composer": keyboardComposerPath,
+  "react-native-chat-composer": keyboardComposerPath,
 };
 
 module.exports = config;
@@ -419,7 +421,7 @@ packages:
 ```json
 {
   "dependencies": {
-    "@launchhq/react-native-keyboard-composer": "workspace:*"
+    "react-native-chat-composer": "workspace:*"
   }
 }
 ```
@@ -454,10 +456,10 @@ In the consuming app's `package.json`, change:
 {
   "dependencies": {
     // From:
-    "@launchhq/react-native-keyboard-composer": "workspace:*"
+    "react-native-chat-composer": "workspace:*"
 
     // To:
-    "@launchhq/react-native-keyboard-composer": "^0.1.0"
+    "react-native-chat-composer": "^0.1.0"
   }
 }
 ```
@@ -485,8 +487,8 @@ Add these scripts to your consuming app's `package.json` for easy switching:
 ```json
 {
   "scripts": {
-    "use-local-keyboard": "pnpm pkg set dependencies.@launchhq/react-native-keyboard-composer=workspace:* && pnpm install",
-    "use-published-keyboard": "pnpm pkg set dependencies.@launchhq/react-native-keyboard-composer=^0.1.0 && pnpm install"
+    "use-local-keyboard": "pnpm pkg set dependencies.react-native-chat-composer=workspace:* && pnpm install",
+    "use-published-keyboard": "pnpm pkg set dependencies.react-native-chat-composer=^0.1.0 && pnpm install"
   }
 }
 ```
@@ -495,12 +497,14 @@ Add these scripts to your consuming app's `package.json` for easy switching:
 
 Contributions are welcome! Please read our contributing guidelines before submitting a PR.
 
-## Support
+## Acknowledgments
 
-If you find this library helpful, consider supporting its development:
+This project is a fork of [`@launchhq/react-native-keyboard-composer`](https://github.com/launchtodayhq/react-native-keyboard-composer), originally created by [**paulmbw**](https://github.com/paulmbw) / [LaunchHQ](https://launchtoday.dev). The original library laid the entire native foundation — the keyboard-tracking architecture, pin-to-top runway, and iOS/Android implementations. Huge thanks for the excellent groundwork.
+
+If you'd like to support the original author's work:
 
 [Buy Me a Coffee](https://www.buymeacoffee.com/paulmbw)
 
 ## License
 
-MIT © [LaunchHQ](https://launchtoday.dev)
+MIT — original work © [LaunchHQ](https://launchtoday.dev), fork maintained by [mdchad](https://github.com/mdchad). See [LICENSE](./LICENSE).

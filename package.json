@@ -1,5 +1,5 @@
 {
-  "name": "@launchhq/react-native-keyboard-composer",
+  "name": "react-native-chat-composer",
   "version": "1.0.1",
   "packageManager": "pnpm@10.26.0",
   "description": "A native keyboard-aware composer component for React Native with smooth keyboard animations",
@@ -49,14 +49,17 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/launchtodayhq/react-native-keyboard-composer.git"
+    "url": "git+https://github.com/mdchad/react-native-chat-composer.git"
   },
   "bugs": {
-    "url": "https://github.com/launchtodayhq/react-native-keyboard-composer/issues"
+    "url": "https://github.com/mdchad/react-native-chat-composer/issues"
   },
-  "author": "paulmbw <paul@launchtoday.dev> (https://github.com/paulmbw)",
+  "author": "mdchad (https://github.com/mdchad)",
+  "contributors": [
+    "paulmbw <paul@launchtoday.dev> (https://github.com/paulmbw)"
+  ],
   "license": "MIT",
-  "homepage": "https://github.com/launchtodayhq/react-native-keyboard-composer#readme",
+  "homepage": "https://github.com/mdchad/react-native-chat-composer#readme",
   "devDependencies": {
     "@types/react": "~19.2.14",
     "expo": "^55.0.5",

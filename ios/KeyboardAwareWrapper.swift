@@ -317,19 +317,12 @@ class KeyboardAwareWrapper: ExpoView, KeyboardAwareScrollHandlerDelegate {
     }
     
     // MARK: - React Native Subview Management
-    
-    override func insertReactSubview(_ subview: UIView!, at atIndex: Int) {
-        super.insertReactSubview(subview, at: atIndex)
-        // Note: Don't reset hasAttached or composerContainer here
-        // React calls this frequently during layout, resetting would lose our references
-        if let sv = findFirstScrollView(in: subview) {
-            registerScrollViewIfNeeded(sv)
-        }
-        if let composer = findFirstComposerView(in: subview) {
-            registerComposerView(composer)
-        }
-        setNeedsLayout()
-    }
+    //
+    // Child registration runs through `didAddSubview` (a plain UIView hook), which
+    // fires on both the Old Architecture and the New Architecture (Fabric). The
+    // Paper-only `insertReactSubview` override was removed: it does not exist on
+    // `ExpoView` under Fabric and broke the New Architecture build. `didAddSubview`
+    // performs the identical scroll-view / composer registration below.
 
     override func didAddSubview(_ subview: UIView) {
         super.didAddSubview(subview)
