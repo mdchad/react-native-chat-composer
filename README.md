@@ -501,10 +501,6 @@ Contributions are welcome! Please read our contributing guidelines before submit
 
 This project is a fork of [`@launchhq/react-native-keyboard-composer`](https://github.com/launchtodayhq/react-native-keyboard-composer), originally created by [**paulmbw**](https://github.com/paulmbw) / [LaunchHQ](https://launchtoday.dev). The original library laid the entire native foundation — the keyboard-tracking architecture, pin-to-top runway, and iOS/Android implementations. Huge thanks for the excellent groundwork.
 
-If you'd like to support the original author's work:
-
-[Buy Me a Coffee](https://www.buymeacoffee.com/paulmbw)
-
 ## License
 
 MIT — original work © [LaunchHQ](https://launchtoday.dev), fork maintained by [mdchad](https://github.com/mdchad). See [LICENSE](./LICENSE).
