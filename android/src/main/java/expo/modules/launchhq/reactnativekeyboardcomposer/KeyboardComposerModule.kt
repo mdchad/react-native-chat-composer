@@ -65,6 +65,20 @@ class KeyboardComposerModule : Module() {
                 "onComposerFocus",
                 "onComposerBlur"
             )
+
+            // Imperative methods, callable from JS via the component ref.
+            // Posted to the view's UI thread because they touch the EditText.
+            AsyncFunction("focus") { view: KeyboardComposerView ->
+                view.post { view.focus() }
+            }
+
+            AsyncFunction("blur") { view: KeyboardComposerView ->
+                view.post { view.blur() }
+            }
+
+            AsyncFunction("clear") { view: KeyboardComposerView ->
+                view.post { view.clear() }
+            }
         }
 
         // KeyboardAwareWrapper

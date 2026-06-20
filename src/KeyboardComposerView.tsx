@@ -1,5 +1,5 @@
 import { requireNativeView } from "expo";
-import { forwardRef, useCallback, useImperativeHandle } from "react";
+import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
 
 import type {
   KeyboardComposerProps,
@@ -9,9 +9,18 @@ import type {
   HeightEventPayload,
 } from "./KeyboardComposer.types";
 
+// Imperative methods the native view exposes on its ref (via Expo Modules
+// view AsyncFunctions). They resolve to promises natively; callers can ignore them.
+type NativeComposerHandle = {
+  focus: () => Promise<void> | void;
+  blur: () => Promise<void> | void;
+  clear: () => Promise<void> | void;
+};
+
 // Get the native view component
-const NativeView: React.ComponentType<KeyboardComposerViewProps> =
-  requireNativeView("KeyboardComposer");
+const NativeView = requireNativeView("KeyboardComposer") as React.ComponentType<
+  KeyboardComposerViewProps & { ref?: React.Ref<NativeComposerHandle> }
+>;
 
 /**
  * KeyboardComposer - A native composer with pixel-perfect keyboard tracking.
@@ -44,16 +53,20 @@ const KeyboardComposerView = forwardRef<
       ...rest
     } = props;
 
-  // Expose methods to parent via ref (placeholder for future native method support)
+    // Ref to the underlying native view. Expo Modules exposes the view's
+    // AsyncFunctions (focus/blur/clear) as async methods on this ref.
+    const nativeRef = useRef<NativeComposerHandle>(null);
+
+    // Expose imperative methods to parent, forwarding to the native view.
     useImperativeHandle(ref, () => ({
       focus: () => {
-      // TODO: Call native focus method
+        nativeRef.current?.focus?.();
       },
       blur: () => {
-      // TODO: Call native blur method
+        nativeRef.current?.blur?.();
       },
       clear: () => {
-      // TODO: Call native clear method
+        nativeRef.current?.clear?.();
       },
     }));
 
@@ -100,6 +113,7 @@ const KeyboardComposerView = forwardRef<
 
     return (
       <NativeView
+        ref={nativeRef}
         // Default to filling the parent container (common usage is inside a fixed-height wrapper).
         // Without a style, React Native can lay this out at 0x0 on Android.
         style={[{ flex: 1, alignSelf: "stretch" }, style]}

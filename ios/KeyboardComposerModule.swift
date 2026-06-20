@@ -69,6 +69,26 @@ public class KeyboardComposerModule: Module {
         "onComposerFocus",
         "onComposerBlur"
       )
+
+      // Imperative methods, callable from JS via the component ref.
+      // Dispatched to the main thread because they touch UIKit (first responder).
+      AsyncFunction("focus") { (view: KeyboardComposerView) in
+        DispatchQueue.main.async {
+          view.focus()
+        }
+      }
+
+      AsyncFunction("blur") { (view: KeyboardComposerView) in
+        DispatchQueue.main.async {
+          view.blur()
+        }
+      }
+
+      AsyncFunction("clear") { (view: KeyboardComposerView) in
+        DispatchQueue.main.async {
+          view.clear()
+        }
+      }
     }
 
     // Second view in module - keyboard-aware wrapper
